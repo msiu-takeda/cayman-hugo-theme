@@ -14,5 +14,10 @@
       {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
       <a href="{{ .URL }}" class="btn">{{ .Name }}</a>
     {{ end }}
+    {{ if .IsTranslated }}
+      {{ range .Translations }}
+        <a href="{{ .Permalink }}" class="btn">{{ .Lang }}</a>
+      {{ end }}
+    {{ end }}
   </nav>
 </section>
