@@ -4,6 +4,9 @@
 <body>
   {{ partial "header-nav.html" . }}
   <section class="main-content">
+    <div class="toc">
+      {{ .Page.TableOfContents }}
+    </div>
     {{ block "main" . }}{{ end }}
     {{ partial "footer.html" . }}
   </section>
