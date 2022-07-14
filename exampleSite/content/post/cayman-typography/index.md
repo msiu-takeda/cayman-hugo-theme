@@ -356,3 +356,5 @@ Small images should be shown at their actual size.
 Large images should always scale down and fit in the content container.
 
 ![](https://unsplash.it/1200/800)
+
+{{< sidebar_toc >}}
