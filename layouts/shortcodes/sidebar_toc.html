@@ -1,0 +1,52 @@
+<style>
+  #float-toc-box {
+    position: fixed;
+    top: 10em;
+    right: 3em;
+    width: 3em;
+    background-image: linear-gradient(to right, rgba(56, 239, 125, 0.4), rgba(56, 239, 125, 1));
+    border: 1px solid;
+    z-index: 10000;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+    border-radius: 10%;
+    opacity: 0.5;
+    text-decoration: none;
+  }
+  #TableOfContents-box {
+    display: none;
+  }
+  #TableOfContents ul {
+    counter-reset: section;
+    list-style-type: none;
+    margin: 0;
+    padding: 0 1em;
+  }
+  #TableOfContents li::before {
+    counter-increment: section;
+    content: counters(section, ".") " ";
+  }
+</style>
+<script>
+  toggleTOC = () => {
+    let p = document.getElementById('float-toc-box');
+    let e = document.getElementById('TableOfContents-box');
+    if (e.style.display == "") {
+      e.style.display = "inline"
+      p.style.width = "15em"
+      p.style.opacity = 1.0
+      document.getElementById('toc-toggle').innerHTML = "TableOfContents"
+    } else {
+      e.style.display = ""
+      p.style.width = "3em"
+      p.style.opacity = 0.5
+      document.getElementById('toc-toggle').innerHTML = "ToC"
+    }
+  }
+</script>
+<aside id="float-toc-box">
+  <center><strong><a id="toc-toggle" onClick="toggleTOC()">ToC</a></strong></center>
+  <div id="TableOfContents-box">
+    {{ .Page.TableOfContents }}
+  </div>
+</aside>
