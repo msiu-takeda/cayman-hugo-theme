@@ -1,6 +1,12 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   <div>
+    <!-- 日本語で1分間600文字 -->
+    {{ $readTime := mul (div (countwords .Content) 600.0) 60 }}
+    {{ $minutes := math.Ceil (div $readTime 60) }}
+    <strong>Reading time: </strong>約{{ $minutes }}分
+  </div>
+  <div>
     {{ $dateFormat := $.Site.Params.dateFormat | default "Jan 2, 2006" }}
     <strong>Publish date: </strong>{{ .PublishDate.Format $dateFormat }}
   </div>
@@ -17,4 +23,5 @@
     </div>
   {{ end }}
   {{ .Content }}
+  {{ partial "disqus.html" . }}
 {{ end }}

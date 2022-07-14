@@ -365,3 +365,16 @@ a {
   border-radius: 0.3rem;
   background-color: #f0ffff;
 }
+
+#TableOfContents ul {
+  counter-reset: section;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 1em;
+}
+#TableOfContents li::before {
+  counter-increment: section;
+  content: counters(section, ".") " ";
+}
+
+@import 'alert';

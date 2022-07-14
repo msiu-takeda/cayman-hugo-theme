@@ -7,6 +7,9 @@ theme: cayman-hugo-theme
 # Google analytics
 googleAnalytics: UA-123456789-1
 
+# Disqus comments
+disqusShortname: yourdiscussshortname
+
 # Syntax highlighting
 pygmentsCodefences: true
 pygmentsStyle: pygments
