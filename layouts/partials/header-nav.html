@@ -12,11 +12,11 @@
       {{ $active = or $active (eq .Name $current.Title) }}
       {{ $active = or $active (eq $current.Section "post") }}
       {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
-      <a href="{{ .URL }}" class="btn">{{ .Name }}</a>
+      <a href="{{ .URL }}" class="cayman-btn">{{ .Name }}</a>
     {{ end }}
     {{ if .IsTranslated }}
       {{ range .Translations }}
-        <a href="{{ .Permalink }}" class="btn">{{ .Lang }}</a>
+        <a href="{{ .Permalink }}" class="cayman-btn">{{ .Lang }}</a>
       {{ end }}
     {{ end }}
   </nav>
