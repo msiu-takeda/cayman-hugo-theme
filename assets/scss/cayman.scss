@@ -3,7 +3,7 @@ $large-breakpoint: {{ $.Site.Params.large_breakpoint | default "64em" }} !defaul
 $medium-breakpoint: {{ $.Site.Params.medium_breakpoint | default "42em" }} !default;
 
 // Headers
-$header-heading-color: {{ $.Site.Params.header_heading_color | default "#fff" }} !default; 
+$header-heading-color: {{ $.Site.Params.header_heading_color | default "#fff" }} !default;
 $header-bg-color: {{ $.Site.Params.header_background_color | default "#159957" }} !default;
 $header-bg-color-secondary: {{ $.Site.Params.header_background_color_secondary | default "#155799" }} !default;
 
@@ -62,7 +62,7 @@ a {
   }
 }
 
-.btn {
+.cayman-btn {
   display: inline-block;
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.7);
@@ -80,7 +80,7 @@ a {
     border-color: rgba(255, 255, 255, 0.3);
   }
 
-  + .btn {
+  + .cayman-btn {
     margin-left: 1rem;
   }
 
@@ -133,6 +133,21 @@ a {
   @include small {
     font-size: 1.75rem;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: initial;
+  margin-inline-end: initial;
+  font-weight: bold;
+  line-height: 1.5;
 }
 
 .project-tagline {
@@ -190,81 +205,15 @@ a {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: normal;
+    line-height: 1.5;
     color: $section-headings-color;
   }
 
   p {
+    margin-top: 1em;
     margin-bottom: 1em;
   }
 
-  code {
-    padding: 2px 4px;
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 0.9em;
-    color: $code-text-color;
-    background-color: $code-bg-color;
-    border-radius: 0.3rem;
-  }
-
-  pre {
-    padding: 0.8rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    color: $code-text-color;
-    word-wrap: normal;
-    background-color: $code-bg-color;
-    border: solid 1px $border-color;
-    border-radius: 0.3rem;
-
-    > code {
-      padding: 0;
-      margin: 0;
-      font-size: 0.9rem;
-      color: $code-text-color;
-      word-break: normal;
-      white-space: pre;
-      background: transparent;
-      border: 0;
-    }
-  }
-
-  .highlight {
-    margin-bottom: 1rem;
-
-    pre {
-      margin-bottom: 0;
-      word-break: normal;
-    }
-  }
-
-  .highlight pre,
-  pre {
-    padding: 0.8rem;
-    overflow: auto;
-    font-size: 0.9rem;
-    line-height: 1.45;
-    border-radius: 0.3rem;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  pre code,
-  pre tt {
-    display: inline;
-    max-width: initial;
-    padding: 0;
-    margin: 0;
-    overflow: initial;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: transparent;
-    border: 0;
-
-    &:before,
-    &:after {
-      content: normal;
-    }
-  }
 
   ul,
   ol {
