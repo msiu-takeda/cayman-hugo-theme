@@ -2,6 +2,7 @@
 {{ $caption := .Get "caption" }}
 {{ $command := .Get "command" }}
 {{ $options := .Get "options" }}
+{{ $align := .Get "align" }}
 
 {{ $original := .Page.Resources.GetMatch (printf "*%s*" $img) }}
 {{ $new := "" }}
@@ -18,9 +19,16 @@
   {{ errorf "Invalid image processing command: Must be one of Fit, Fill, Resize, Original." }}
 {{ end }}
 
+{{ $style := "text-align:left" }}
+{{ if eq $align "center" }}
+  {{ $style = "text-align:center" }}
+{{ else if eq $align "right" }}
+  {{ $style = "text-align:right" }}
+{{ end }}
+
 {{ $captionId := printf "caption-%s" ($caption | md5) }}
 
-<figure role="group" aria-describedby="{{ $captionId }}">
+<figure role="group" aria-describedby="{{ $captionId }}" style="{{ $style }}">
   <a href="{{ $original.Permalink }}" class="">
     <img src="{{ $new.Permalink }}">
   </a>
